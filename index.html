@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrida dos Concluintes 2025 - Escola Eliel</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Estilos personalizados para a fonte e efeitos */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Efeito de sombra no texto do cabeçalho para melhor legibilidade */
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Animação de entrada suave */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Adiciona um delay para cada card aparecer em sequência */
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Garante que o modal de inscrição fique acima de todo o conteúdo */
+        #registration-modal {
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Seção Principal (Hero) -->
+    <header class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-sky-600 via-blue-800 to-indigo-900 z-0"></div>
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+        <div class="relative z-20 px-4 py-20">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase text-shadow fade-in">Corrida dos
+                Concluintes 2025</h1>
+            <p class="text-xl md:text-2xl font-semibold mt-2 text-sky-300 text-shadow fade-in delay-1">Escola Eliel</p>
+            <p class="max-w-2xl mx-auto mt-6 text-lg md:text-xl text-slate-200 fade-in delay-2">
+                Participe deste grande evento, apoie nossos formandos e celebre uma conquista correndo por um futuro
+                brilhante!
+            </p>
+            <div class="mt-10 fade-in delay-3">
+                <a href="#inscricao"
+                    class="bg-yellow-400 text-slate-900 font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105">
+                    INSCREVA-SE AGORA!
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Conheça os Concluintes -->
+        <section class="bg-slate-100 py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Conheça Nossos Concluintes 2025</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mb-12">O futuro começa aqui! Estes são os estudantes que
+                    estão se formando e para quem estamos correndo.</p>
+            </div>
+            <div class="w-full mt-8">
+                <img src="imagens/baner1.jpeg"
+                    onerror="this.onerror=null;this.src='https://placehold.co/1920x600/334155/E2E8F0?text=Turma+de+Concluintes+2025';"
+                    alt="Foto panorâmica da turma de concluintes de 2025" class="w-full h-auto object-cover">
+            </div>
+        </section>
+
+        <!-- Seção de Detalhes do Evento -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">Sobre a Corrida</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-slate-50 p-6 rounded-xl shadow-md text-center border-t-4 border-sky-500">
+                        <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-12 w-12 text-sky-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg></div>
+                        <h3 class="text-xl font-bold mb-2">Data e Horário</h3>
+                        <p class="text-slate-600">Domingo, 28 de Setembro de 2025<br>Largada às 8h00</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl shadow-md text-center border-t-4 border-emerald-500">
+                        <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-12 w-12 text-emerald-500" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 13v-6" />
+                            </svg></div>
+                        <h3 class="text-xl font-bold mb-2">Percurso</h3>
+                        <p class="text-slate-600">5 km de pura energia<br>em estrada rural segura e sinalizada.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl shadow-md text-center border-t-4 border-pink-500">
+                        <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-12 w-12 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M15 21v-1a6 6 0 00-5.197-5.975M15 10a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg></div>
+                        <h3 class="text-xl font-bold mb-2">Categorias</h3>
+                        <p class="text-slate-600">Masculino e Feminino<br>Todos são bem-vindos!</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl shadow-md text-center border-t-4 border-amber-500">
+                        <div class="flex justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-12 w-12 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z"
+                                    transform="rotate(180 12 12) translate(0 24)" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h2M9 11l3-3m0 0l3 3m-3-3v8" />
+                            </svg></div>
+                        <h3 class="text-xl font-bold mb-2">Premiação</h3>
+                        <p class="text-slate-600">Troféus para 1º, 2º e 3º lugar<br>e medalha de participação para
+                            todos!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Atendimento e Aquecimento -->
+        <section class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Atendimento Especial e Aquecimento
+                    </h2>
+                    <p class="text-lg text-slate-600 mb-6">
+                        Para garantir o seu bem-estar, ofereceremos um atendimento completo no dia da corrida.
+                    </p>
+                    <ul class="space-y-4 text-left text-slate-700">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-sky-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div><strong>Atendimento com Fisioterapeuta:</strong> Um profissional estará disponível para
+                                avaliar e preparar os atletas antes da corrida.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-sky-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <div><strong>Aquecimento com Personal Trainer:</strong> Um aquecimento guiado para todos os
+                                participantes, garantindo que todos comecem a corrida da melhor forma.</div>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-sky-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.828a4 4 0 010-5.656m5.656 0a4 4 0 010 5.656">
+                                </path>
+                            </svg>
+                            <div><strong>Aula de Zumba Profissional:</strong> Após a corrida, uma aula de zumba para
+                                relaxar e celebrar com muita dança e diversão.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <img src="imagens/zumba.jpeg" alt="Atividades da corrida"
+                        class="rounded-lg shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção Ponto de Encontro -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Ponto de Encontro</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mb-8">A largada e a chegada da corrida serão em frente à
+                    nossa querida escola.</p>
+                <div class="max-w-4xl mx-auto">
+                    <img src="imagens/WhatsApp Image 2025-07-03 at 11.23.17.jpeg"
+                        alt="Foto da Escola Eliel Peixoto de Melo"
+                        class="rounded-lg shadow-lg mb-8 w-full h-auto object-cover">
+                    <h3 class="text-2xl font-bold text-slate-800">Escola Eliel Peixoto de Melo</h3>
+                    <!-- IMPORTANTE: Substitua o '#' pelo link real do Google Maps -->
+                    <a href="https://maps.app.goo.gl/Mp1UbtXeaeNHMC7e7?g_st=ipc" target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-6 inline-block bg-sky-600 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-sky-700 transition-all duration-300 transform hover:scale-105">
+                        Ver Localização no Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Inscrição -->
+        <section id="inscricao" class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-4">Faça sua Inscrição</h2>
+                <p class="text-center text-slate-600 max-w-2xl mx-auto mb-12">Garanta sua vaga e apoie nossos
+                    concluintes!</p>
+
+                <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Coluna do Formulário -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-t-8 border-blue-600">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">Preencha seus dados</h3>
+                        <form id="registration-form">
+                            <div class="grid grid-cols-1 gap-6">
+                                <div>
+                                    <label for="nome" class="block text-sm font-medium text-slate-700">Nome
+                                        Completo</label>
+                                    <input type="text" id="nome" name="nome" required
+                                        class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="whatsapp"
+                                        class="block text-sm font-medium text-slate-700">WhatsApp</label>
+                                    <input type="tel" id="whatsapp" name="whatsapp" required
+                                        class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                                <div>
+                                    <label for="cidade" class="block text-sm font-medium text-slate-700">Cidade</label>
+                                    <input type="text" id="cidade" name="cidade" required
+                                        class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <button type="submit"
+                                    class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">
+                                    INSCREVER-SE E PAGAR (R$ 50,00)
+                                </button>
+                            </div>
+                        </form>
+                        <div class="checkout-btn"></div>
+
+                        <!-- Card de Inscrição em Grupo -->
+                        <div class="mt-8 border-t border-slate-200 pt-6 text-center">
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">Inscrição para Grupos</h4>
+                            <p class="text-slate-600 max-w-sm mx-auto">Para grupos a partir de 10 corredores, a
+                                inscrição é de <span class="font-bold text-2xl text-emerald-500">R$ 40,00</span> por
+                                atleta. Fale com a nossa equipe para um atendimento especial e simplificado.</p>
+                            <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20fazer%20a%20inscrição%20de%20um%20grupo%20para%20a%20Corrida%20dos%20Concluintes."
+                                target="_blank" rel="noopener noreferrer"
+                                class="mt-4 inline-flex items-center justify-center gap-2 bg-green-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-md">
+                                <svg class="w-6 h-6" role="img" viewBox="0 0 24 24" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <title>WhatsApp</title>
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52s-.67-.816-.916-1.103c-.247-.288-.5-.331-.697-.331-.198 0-.42.049-.644.347-.223.297-.867.867-.867 2.101 0 1.234.89 2.436 1.015 2.585.124.149 1.758 2.674 4.25 3.75.576.253 1.039.405 1.401.515.729.22 1.39.194 1.896.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.204-1.634a11.86 11.86 0 005.792 1.634h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                </svg>
+                                Inscrever Grupo
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coluna de Informações -->
+                    <div class="bg-blue-600 text-white rounded-xl shadow-lg p-8 lg:p-10 flex flex-col h-full">
+                        <h3 class="text-2xl font-bold text-center mb-4 text-yellow-300">Valor da Inscrição</h3>
+                        <p class="text-5xl lg:text-6xl font-black text-center mb-6">R$ 50,00</p>
+                        <h4 class="text-xl font-bold mb-4">Sua inscrição inclui:</h4>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start">
+                                <svg class="w-7 h-7 text-yellow-300 mr-3 mt-1 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div><strong>Medalha Personalizada Resistente:</strong> Uma recordação exclusiva do
+                                    evento, feita em acrílico de alta qualidade.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-7 h-7 text-yellow-300 mr-3 mt-1 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div><strong>Kit de Atleta Completo:</strong> Acesso a todos os serviços, incluindo
+                                    fisioterapia, aquecimento com personal trainer e aula de zumba.</div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-7 h-7 text-yellow-300 mr-3 mt-1 flex-shrink-0" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div><strong>Apoio Direto aos Formandos:</strong> Sua participação é um investimento no
+                                    futuro dos nossos alunos.</div>
+                            </li>
+                        </ul>
+                        <div class="mt-auto pt-6 text-center">
+                            <p class="font-semibold">Junte-se a nós nesta celebração!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção da Medalha -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Uma Medalha Para Guardar na Memória
+                </h2>
+                <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">Esta não é apenas uma medalha. É o símbolo da
+                    sua dedicação,
+                    do seu apoio à educação e da sua participação em um momento histórico para nossos concluintes.
+                </p>
+                <ul class="space-y-3 text-slate-700 inline-block text-left">
+                    <li class="flex items-start"><svg class="w-6 h-6 text-sky-500 mr-3 flex-shrink-0" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div><strong>Qualidade Superior:</strong> Feita em acrílico de alta durabilidade. Não
+                            enferruja, não incha e não amassa.</div>
+                    </li>
+                    <li class="flex items-start"><svg class="w-6 h-6 text-sky-500 mr-3 flex-shrink-0" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div><strong>Design Exclusivo:</strong> Uma peça personalizada para marcar a Corrida dos
+                            Concluintes 2025.</div>
+                    </li>
+                    <li class="flex items-start"><svg class="w-6 h-6 text-sky-500 mr-3 flex-shrink-0" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div><strong>Mais que um prêmio:</strong> É a celebração de cada passo dado por um futuro
+                            brilhante.</div>
+                    </li>
+                </ul>
+                <p class="mt-8 font-semibold text-xl text-slate-800">Lembre-se: a corrida é o desafio, a medalha é a
+                    sua vitória.</p>
+            </div>
+        </section>
+
+
+        <section class="py-16 md:py-24 bg-slate-900 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossos Patrocinadores</h2>
+                <p class="max-w-3xl mx-auto text-slate-300 mb-12">Este evento só é possível graças ao apoio de empresas
+                    que acreditam no futuro dos nossos alunos. Agradecemos a todos!</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+                    <img src="https://placehold.co/200x100/ffffff/000000?text=Patrocinador+Ouro"
+                        alt="Logo Patrocinador Ouro"
+                        class="mx-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-300">
+                    <img src="https://placehold.co/180x90/ffffff/000000?text=Patrocinador+Prata"
+                        alt="Logo Patrocinador Prata"
+                        class="mx-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-300">
+                    <img src="https://placehold.co/160x80/ffffff/000000?text=Patrocinador+Bronze"
+                        alt="Logo Patrocinador Bronze"
+                        class="mx-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-300">
+                    <img src="https://placehold.co/180x90/ffffff/000000?text=Apoiador" alt="Logo Apoiador"
+                        class="mx-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <div class="mt-16 bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-yellow-400 mb-4">QUER APOIAR ESTA CAUSA?</h3>
+                    <p class="text-slate-300 mb-6">Associe sua marca a um evento positivo e com grande visibilidade na
+                        comunidade. Oferecemos diversas cotas de patrocínio.</p>
+                    <button onclick="openSupportModal()"
+                        class="bg-yellow-400 text-slate-900 font-bold px-8 py-3 rounded-full hover:bg-yellow-300 transition-colors duration-300">Seja
+                        um Patrocinador</button>
+                </div>
+
+                <!-- Seção DEV ARC -->
+                <div class="mt-12 border-t border-slate-700 pt-8">
+                    <h4 class="text-xl font-bold text-white">Quer uma página profissional como esta para a sua corrida
+                        ou evento?</h4>
+                    <p class="mt-2 text-slate-400">Entre em contato com a <span class="font-bold text-white">DEV
+                            ARC</span> e transforme sua ideia em realidade.</p>
+                    <p class="mt-4 text-sm text-slate-300">Desenvolvido por Arcelino Cavalcante</p>
+                    <div class="mt-6 flex justify-center items-center gap-6">
+                        <a href="https://wa.me/SEUNUMERODEV?text=Olá!%20Vi%20a%20página%20da%20Corrida%20dos%20Concluintes%20e%20gostaria%20de%20um%20orçamento."
+                            target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 bg-green-500 text-white font-semibold py-2 px-5 rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-md">
+                            <svg class="w-6 h-6" role="img" viewBox="0 0 24 24" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <title>WhatsApp</title>
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52s-.67-.816-.916-1.103c-.247-.288-.5-.331-.697-.331-.198 0-.42.049-.644.347-.223.297-.867.867-.867 2.101 0 1.234.89 2.436 1.015 2.585.124.149 1.758 2.674 4.25 3.75.576.253 1.039.405 1.401.515.729.22 1.39.194 1.896.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.204-1.634a11.86 11.86 0 005.792 1.634h.004c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>
+                            WhatsApp
+                        </a>
+                        <a href="https://www.instagram.com/arcelinocavalcante.dev" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-2 px-5 rounded-lg hover:opacity-90 transition-opacity duration-300 shadow-md">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-1.623C8.724.54 8.333.53 7.053.588c-3.528.16-5.648 2.282-5.808 5.808C1.19 8.333 1.18 8.724 1.18 12s.01 3.667.069 4.948c.16 3.525 2.28 5.648 5.808 5.808 1.28.058 1.67.069 4.948.069s3.667-.01 4.948-.069c3.525-.16 5.648-2.282 5.808-5.808.058-1.28.069-1.67.069-4.948s-.01-3.667-.069-4.948c-.16-3.525-2.28-5.648-5.808-5.808C15.667.53 15.276.54 12 .54zM12 6.865c-2.841 0-5.135 2.294-5.135 5.135s2.294 5.135 5.135 5.135 5.135-2.294 5.135-5.135S14.841 6.865 12 6.865zm0 8.645c-1.933 0-3.51-1.577-3.51-3.51s1.577-3.51 3.51-3.51 3.51 1.577 3.51 3.51-1.577 3.51-3.51 3.51z" />
+                            </svg>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-slate-900 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-bold text-lg text-white">Escola Eliel</p>
+            <p class="mt-2">Promovendo educação, esporte e comunidade.</p>
+            <p class="text-sm mt-4">&copy; 2025 Corrida dos Concluintes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Apoio -->
+    <div id="support-modal"
+        class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg p-8 relative text-center">
+            <!-- Botão de Fechar -->
+            <button onclick="closeSupportModal()" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Seja um Apoiador do Futuro!</h2>
+            <p class="text-slate-600 mb-6">
+                Ao apoiar a Corrida dos Concluintes, sua marca ganha visibilidade e se associa a uma causa nobre: a
+                educação.
+                Dependendo do valor do seu apoio, sua logo pode estampar as camisas do evento, alcançando todos os
+                participantes e a comunidade.
+            </p>
+            <p class="text-slate-600 font-semibold mb-8">
+                É uma oportunidade única de investir no futuro dos nossos alunos e fortalecer sua imagem.
+            </p>
+
+            <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20como%20apoiar%20a%20Corrida%20dos%20Concluintes."
+                target="_blank" rel="noopener noreferrer"
+                class="w-full bg-green-500 text-white font-bold text-lg px-12 py-4 rounded-lg shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-105 inline-block">Falar
+                com a Equipe do Evento</a>
+        </div>
+    </div>
+
+    <!-- Notificação de Inscrição -->
+    <div id="live-notification"
+        class="fixed bottom-5 left-5 bg-white rounded-lg shadow-2xl p-4 flex items-center gap-4 transform transition-all duration-500 -translate-x-[200%] z-50">
+        <div class="bg-sky-500 text-white p-2 rounded-full">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z">
+                </path>
+            </svg>
+        </div>
+        <div>
+            <p class="font-bold text-slate-800">Nova Inscrição!</p>
+            <p id="notification-text" class="text-slate-600 text-sm"></p>
+        </div>
+    </div>
+
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Funções do Modal de Apoio
+        function openSupportModal() {
+            document.getElementById('support-modal').classList.remove('hidden');
+        }
+        function closeSupportModal() {
+            document.getElementById('support-modal').classList.add('hidden');
+        }
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZIR1Vm7tEsWe75hk_Cjh_G9Zy1lkJOY8",
+            authDomain: "corrida-concluintes-3bdee.firebaseapp.com",
+            projectId: "corrida-concluintes-3bdee",
+            storageBucket: "corrida-concluintes-3bdee.firebasestorage.app",
+            messagingSenderId: "887341531324",
+            appId: "1:887341531324:web:add10489fad8a05033d0b9"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Lógica do Formulário de Inscrição
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.getElementById('registration-form');
+            const submitButton = registrationForm.querySelector('button[type="submit"]');
+
+            registrationForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Impede o envio padrão do formulário
+
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 mr-3 inline-block" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processando...
+                `;
+
+                const nome = document.getElementById('nome').value;
+                const whatsapp = document.getElementById('whatsapp').value;
+                const cidade = document.getElementById('cidade').value;
+
+                try {
+                    // Salva os dados no Firestore
+                    await db.collection('inscricoes').add({
+                        name: nome,
+                        whatsapp: whatsapp,
+                        city: cidade,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+
+                    // IMPORTANTE: Substitua pelo número de WhatsApp da sua equipe
+                    const numeroEquipe = '5582981182690'; // <<<<<<< SUBSTITUA PELO NÚMERO CORRETO
+                    const mensagem = `Olá! Gostaria de finalizar minha inscrição para a Corrida dos Concluintes.\n\n*Nome:* ${nome}\n*Cidade:* ${cidade}`;
+                    const urlWhatsApp = `https://wa.me/${numeroEquipe}?text=${encodeURIComponent(mensagem)}`;
+
+                    // Redireciona para o WhatsApp
+                    window.location.href = urlWhatsApp;
+
+                } catch (error) {
+                    console.error('Erro na inscrição:', error);
+                    alert(`Ocorreu um erro ao salvar sua inscrição. Por favor, tente novamente.`);
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
+            });
+
+            // Lógica para Notificações Fake
+            const nomes = ["José", "João Arthur", "Maria", "Pedro", "Ana", "Lucas", "Mariana", "Fernando", "Beatriz", "Rafael"];
+            const cidades = ["Jucati", "Jupi", "Garanhuns"];
+            const notificationElement = document.getElementById('live-notification');
+            const notificationText = document.getElementById('notification-text');
+
+            function showRandomNotification() {
+                const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+                const cidadeAleatoria = cidades[Math.floor(Math.random() * cidades.length)];
+
+                notificationText.textContent = `${nomeAleatorio} de ${cidadeAleatoria} acabou de se inscrever.`;
+
+                notificationElement.classList.remove('-translate-x-[200%]');
+
+                // Esconde a notificação após 5 segundos
+                setTimeout(() => {
+                    notificationElement.classList.add('-translate-x-[200%]');
+                }, 5000);
+
+                // Agenda a próxima notificação
+                scheduleNextNotification();
+            }
+
+            function scheduleNextNotification() {
+                // Tempo aleatório entre 2 minutos (120000 ms) e 5 minutos (300000 ms)
+                const randomTime = Math.floor(Math.random() * (300000 - 120000 + 1)) + 120000;
+                setTimeout(showRandomNotification, randomTime);
+            }
+
+            // Inicia o ciclo de notificações
+            scheduleNextNotification();
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

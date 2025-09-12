@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Lista de Inscritos</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-slate-800">Painel de Inscrições</h1>
+            <p class="text-slate-600">Lista de todos os participantes inscritos na corrida.</p>
+        </header>
+
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div id="loading-state" class="p-8 text-center text-slate-500 font-semibold">
+                <p>Carregando inscrições...</p>
+            </div>
+            <div id="empty-state" class="p-8 text-center text-slate-500 font-semibold hidden">
+                <p>Nenhuma inscrição encontrada.</p>
+            </div>
+            <table id="inscritos-table" class="min-w-full leading-normal hidden">
+                <thead>
+                    <tr>
+                        <th class="px-5 py-3 border-b-2 border-slate-200 bg-slate-50 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">#</th>
+                        <th class="px-5 py-3 border-b-2 border-slate-200 bg-slate-50 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Nome</th>
+                        <th class="px-5 py-3 border-b-2 border-slate-200 bg-slate-50 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">WhatsApp</th>
+                        <th class="px-5 py-3 border-b-2 border-slate-200 bg-slate-50 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Cidade</th>
+                        <th class="px-5 py-3 border-b-2 border-slate-200 bg-slate-50 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Data da Inscrição</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configuração do Firebase (a mesma do index.html)
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZIR1Vm7tEsWe75hk_Cjh_G9Zy1lkJOY8",
+            authDomain: "corrida-concluintes-3bdee.firebaseapp.com",
+            projectId: "corrida-concluintes-3bdee",
+            storageBucket: "corrida-concluintes-3bdee.firebasestorage.app",
+            messagingSenderId: "887341531324",
+            appId: "1:887341531324:web:add10489fad8a05033d0b9"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Lógica para buscar e exibir os dados
+        document.addEventListener('DOMContentLoaded', async () => {
+            const table = document.getElementById('inscritos-table');
+            const tableBody = document.getElementById('table-body');
+            const loadingState = document.getElementById('loading-state');
+            const emptyState = document.getElementById('empty-state');
+
+            try {
+                                const inscritosRef = db.collection('inscricoes').orderBy('createdAt', 'desc');
+                const snapshot = await inscritosRef.get();
+
+                loadingState.classList.add('hidden');
+
+                if (snapshot.empty) {
+                    emptyState.classList.remove('hidden');
+                    return;
+                }
+
+                table.classList.remove('hidden');
+
+                let counter = 1;
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const row = tableBody.insertRow();
+
+                    // Formata a data
+                    const date = data.timestamp ? data.timestamp.toDate() : new Date();
+                    const formattedDate = date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR');
+                    const formattedCounter = String(counter).padStart(2, '0');
+
+                    row.innerHTML = `
+                        <td class="px-5 py-4 border-b border-slate-200 bg-white text-sm text-slate-900 font-bold">${formattedCounter}</td>
+                        <td class="px-5 py-4 border-b border-slate-200 bg-white text-sm text-slate-900">${data.name}</td>
+                        <td class="px-5 py-4 border-b border-slate-200 bg-white text-sm text-slate-900">${data.whatsapp}</td>
+                        <td class="px-5 py-4 border-b border-slate-200 bg-white text-sm text-slate-900">${data.city}</td>
+                        <td class="px-5 py-4 border-b border-slate-200 bg-white text-sm text-slate-900">${formattedDate}</td>
+                    `;
+                    counter++;
+                });
+
+            } catch (error) {
+                console.error("Erro ao buscar inscrições: ", error);
+                loadingState.textContent = 'Erro ao carregar os dados. Verifique o console para mais detalhes.';
+            }
+        });
+    </script>
+
+</body>
+</html>
