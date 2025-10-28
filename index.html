@@ -256,6 +256,19 @@
                                     <input type="text" id="cidade" name="cidade" required
                                         class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                                 </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-slate-700">Forma de Pagamento</label>
+                                    <div class="mt-2 space-y-2">
+                                        <div class="flex items-center">
+                                            <input id="pix" name="pagamento" type="radio" value="PIX" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
+                                            <label for="pix" class="ml-3 block text-sm font-medium text-slate-700">Pagar com PIX</label>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <input id="dinheiro" name="pagamento" type="radio" value="Dinheiro" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
+                                            <label for="dinheiro" class="ml-3 block text-sm font-medium text-slate-700">Pagar em Dinheiro (na Escola Eliel Peixoto)</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mt-8">
                                 <button type="submit"
@@ -530,6 +543,7 @@
                 const nome = document.getElementById('nome').value;
                 const whatsapp = document.getElementById('whatsapp').value;
                 const cidade = document.getElementById('cidade').value;
+                const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
 
                 try {
                     // Salva os dados no Firestore
@@ -537,12 +551,13 @@
                         name: nome,
                         whatsapp: whatsapp,
                         city: cidade,
+                        paymentMethod: pagamento,
                         createdAt: firebase.firestore.FieldValue.serverTimestamp()
                     });
 
                     // IMPORTANTE: Substitua pelo número de WhatsApp da sua equipe
                     const numeroEquipe = '5587981228882'; // <<<<<<< NÚMERO ATUALIZADO
-                    const mensagem = `Olá! Gostaria de finalizar minha inscrição para a Corrida dos Concluintes.\n\n*Nome:* ${nome}\n*Cidade:* ${cidade}`;
+                    const mensagem = `Olá! Gostaria de finalizar minha inscrição para a Corrida dos Concluintes.\n\n*Nome:* ${nome}\n*Cidade:* ${cidade}\n*Forma de Pagamento:* ${pagamento}`;
                     const urlWhatsApp = `https://wa.me/${numeroEquipe}?text=${encodeURIComponent(mensagem)}`;
 
                     // Redireciona para o WhatsApp

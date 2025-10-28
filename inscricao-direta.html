@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição Direta - Corrida dos Concluintes 2025</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100">
+
+    <!-- Seção de Inscrição -->
+    <section id="inscricao" class="py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 border-t-8 border-blue-600">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-4">Inscrição Direta</h2>
+                <p class="text-center text-slate-600 max-w-2xl mx-auto mb-8">Preencha o formulário para garantir sua vaga.</p>
+                
+                <form id="registration-form">
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label for="nome" class="block text-sm font-medium text-slate-700">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required
+                                class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="whatsapp" class="block text-sm font-medium text-slate-700">WhatsApp</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" required
+                                class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="cidade" class="block text-sm font-medium text-slate-700">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" required
+                                class="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700">Forma de Pagamento</label>
+                            <div class="mt-2 space-y-2">
+                                <div class="flex items-center">
+                                    <input id="pix" name="pagamento" type="radio" value="PIX" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
+                                    <label for="pix" class="ml-3 block text-sm font-medium text-slate-700">Pagar com PIX</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input id="dinheiro" name="pagamento" type="radio" value="Dinheiro" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
+                                    <label for="dinheiro" class="ml-3 block text-sm font-medium text-slate-700">Pagar em Dinheiro (na Escola Eliel Peixoto)</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">
+                            INSCREVER-SE (R$ 30,00)
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCZIR1Vm7tEsWe75hk_Cjh_G9Zy1lkJOY8",
+            authDomain: "corrida-concluintes-3bdee.firebaseapp.com",
+            projectId: "corrida-concluintes-3bdee",
+            storageBucket: "corrida-concluintes-3bdee.firebasestorage.app",
+            messagingSenderId: "887341531324",
+            appId: "1:887341531324:web:add10489fad8a05033d0b9"
+        };
+
+        // Inicializa o Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Lógica do Formulário de Inscrição
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.getElementById('registration-form');
+            const submitButton = registrationForm.querySelector('button[type="submit"]');
+
+            registrationForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 mr-3 inline-block" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processando...
+                `;
+
+                const nome = document.getElementById('nome').value;
+                const whatsapp = document.getElementById('whatsapp').value;
+                const cidade = document.getElementById('cidade').value;
+                const pagamento = document.querySelector('input[name="pagamento"]:checked').value;
+
+                try {
+                    await db.collection('inscricoes').add({
+                        name: nome,
+                        whatsapp: whatsapp,
+                        city: cidade,
+                        paymentMethod: pagamento,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+
+                    const numeroEquipe = '5587981228882';
+                    const mensagem = `Olá! Gostaria de finalizar minha inscrição para a Corrida dos Concluintes.\n\n*Nome:* ${nome}\n*Cidade:* ${cidade}\n*Forma de Pagamento:* ${pagamento}`;
+                    const urlWhatsApp = `https://wa.me/${numeroEquipe}?text=${encodeURIComponent(mensagem)}`;
+
+                    window.location.href = urlWhatsApp;
+
+                } catch (error) {
+                    console.error('Erro na inscrição:', error);
+                    alert('Ocorreu um erro ao salvar sua inscrição. Por favor, tente novamente.');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonText;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
