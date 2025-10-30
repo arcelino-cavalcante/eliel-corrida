@@ -260,12 +260,17 @@
                                     <label class="block text-sm font-medium text-slate-700">Forma de Pagamento</label>
                                     <div class="mt-2 space-y-2">
                                         <div class="flex items-center">
-                                            <input id="pix" name="pagamento" type="radio" value="PIX" required class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
-                                            <label for="pix" class="ml-3 block text-sm font-medium text-slate-700">Pagar com PIX</label>
+                                            <input id="pix" name="pagamento" type="radio" value="PIX" required
+                                                class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
+                                            <label for="pix" class="ml-3 block text-sm font-medium text-slate-700">Pagar
+                                                com PIX</label>
                                         </div>
                                         <div class="flex items-center">
-                                            <input id="dinheiro" name="pagamento" type="radio" value="Dinheiro" class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
-                                            <label for="dinheiro" class="ml-3 block text-sm font-medium text-slate-700">Pagar em Dinheiro (na Escola Eliel Peixoto)</label>
+                                            <input id="dinheiro" name="pagamento" type="radio" value="Dinheiro"
+                                                class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-slate-300">
+                                            <label for="dinheiro"
+                                                class="ml-3 block text-sm font-medium text-slate-700">Pagar em Dinheiro
+                                                (na Escola Eliel Peixoto)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -572,8 +577,8 @@
             });
 
             // Lógica para Notificações Fake
-            const nomes = ["José", "João Arthur", "Maria", "Pedro", "Ana", "Lucas", "Mariana", "Fernando", "Beatriz", "Rafael"];
-            const cidades = ["Jucati", "Jupi", "Garanhuns"];
+            const nomes = ["Maria Oliveira", "João Silva", "Ana Pereira", "Pedro Santos", "Sofia Costa", "Lucas Souza", "Laura Fernandes", "Matheus Rodrigues", "Julia Gomes", "Gabriel Martins", "Isabella Lima", "Davi Alves", "Beatriz Ferreira", "Guilherme Ribeiro", "Manuela Barbosa", "Enzo Rocha"];
+            const cidades = ["Jupi", "Jucati", "Garanhuns", "Calçado", "Lajedo",];
             const notificationElement = document.getElementById('live-notification');
             const notificationText = document.getElementById('notification-text');
 
@@ -595,13 +600,13 @@
             }
 
             function scheduleNextNotification() {
-                // Tempo aleatório entre 2 minutos (120000 ms) e 5 minutos (300000 ms)
-                const randomTime = Math.floor(Math.random() * (300000 - 120000 + 1)) + 120000;
+                // Tempo aleatório entre 5 segundos (5000 ms) e 15 segundos (15000 ms)
+                const randomTime = Math.floor(Math.random() * (15000 - 5000 + 1)) + 5000;
                 setTimeout(showRandomNotification, randomTime);
             }
 
             // Inicia o ciclo de notificações
-            scheduleNextNotification();
+            setTimeout(showRandomNotification, 5000); // Mostra a primeira notificação após 5 segundos
         });
     </script>
 </body>
